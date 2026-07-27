@@ -9,7 +9,7 @@ import ScrollIndicator from "./ScrollIndicator";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
+    <section id="home" className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
       <FloatingOrbs />
       <ParticleField />
 
