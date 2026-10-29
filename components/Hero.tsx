@@ -30,7 +30,7 @@ export default function Hero() {
           <div className="float absolute -bottom-6 -left-8 glass rounded-xl px-4 py-3 font-mono text-[10px] uppercase tracking-[.15em] text-white/60">React <span className="text-violet-300">+</span> Node <span className="text-cyan-300">+</span> ideas</div>
         </div>
       </div>
-      <div className="absolute bottom-8 left-6 flex items-center gap-5 text-white/35 lg:left-10"><span className="font-mono text-[10px] uppercase tracking-[.2em]">Scroll to explore</span><ArrowDown size={15} className="pulse-line" /><div className="hidden gap-3 sm:flex"><a href={`mailto:nishana@example.com`} aria-label="Email Nishana"><Mail size={15} /></a><a href="#contact" aria-label="Source code"><GitBranch size={15} /></a><a href="#contact" aria-label="Professional network"><Network size={15} /></a></div></div>
+      <div className="absolute bottom-8 left-6 flex items-center gap-5 text-white/35 lg:left-10"><span className="font-mono text-[10px] uppercase tracking-[.2em]">Scroll to explore</span><ArrowDown size={15} className="pulse-line" /><div className="hidden gap-3 sm:flex"><a href={`mailto:shananishana9@gmail.com`} aria-label="Email Nishana"><Mail size={15} /></a><a href="#contact" aria-label="Source code"><GitBranch size={15} /></a><a href="#contact" aria-label="Professional network"><Network size={15} /></a></div></div>
     </section>
   );
 }

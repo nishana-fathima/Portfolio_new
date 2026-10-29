@@ -142,4 +142,4 @@ export const experience = [
   },
 ];
 
-export const contactEmail = "nishana@example.com";
+export const contactEmail = "shananishana9@gmail.com"
