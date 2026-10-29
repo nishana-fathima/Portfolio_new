@@ -1,78 +1,24 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
 
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+const links = ["about", "skills", "experience", "projects", "contact"];
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-
+  const [open, setOpen] = useState(false);
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
-      className="fixed top-0 left-0 z-50 flex w-full items-center justify-between px-6 py-4 backdrop-blur-md lg:px-12"
-    >
-      {/* Logo */}
-      <Link href="#home" className="text-xl font-bold tracking-wider text-white">
-        NISHA<span className="text-accent-purple">NA</span>
-      </Link>
-
-      {/* Desktop Links */}
-      <ul className="hidden items-center gap-8 md:flex">
-        {navLinks.map((link) => (
-          <li key={link.label}>
-            <a
-              href={link.href}
-              className="text-sm font-medium text-white/50 transition-colors hover:text-white"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      {/* Mobile Toggle */}
-      <button
-        onClick={() => setMobileOpen(!mobileOpen)}
-        className="text-white md:hidden"
-        aria-label="Toggle menu"
-      >
-        {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-      </button>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full left-0 flex w-full flex-col items-center gap-6 bg-background/95 py-8 backdrop-blur-md md:hidden"
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-base font-medium text-white/50 transition-colors hover:text-white"
-              >
-                {link.label}
-              </a>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+    <motion.header initial={{ y: -24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: .7 }} className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
+      <nav className="glass mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-3 sm:px-5">
+        <a href="#home" className="font-mono text-sm font-bold tracking-[.2em] text-white">NF<span className="text-violet-400">.</span></a>
+        <div className="hidden items-center gap-7 md:flex">
+          {links.map((link) => <a key={link} href={`#${link}`} className="text-[11px] font-medium uppercase tracking-[.16em] text-white/45 transition hover:text-white">{link}</a>)}
+        </div>
+        <a href="#contact" className="hidden items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-black transition hover:bg-cyan-200 sm:flex">Let&apos;s talk <ArrowUpRight size={14} /></a>
+        <button type="button" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)} className="rounded-full p-2 text-white md:hidden">{open ? <X size={19} /> : <Menu size={19} />}</button>
+      </nav>
+      <AnimatePresence>{open && <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="glass mx-auto mt-2 flex max-w-6xl flex-col gap-5 rounded-2xl p-5 md:hidden">{links.map((link) => <a key={link} href={`#${link}`} onClick={() => setOpen(false)} className="text-xs uppercase tracking-[.18em] text-white/60">{link}</a>)}</motion.div>}</AnimatePresence>
+    </motion.header>
   );
 }

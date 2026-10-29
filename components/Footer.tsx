@@ -1,0 +1,3 @@
+import { ArrowUp, GitBranch, Network } from "lucide-react";
+
+export default function Footer() { return <footer className="border-t border-white/10 px-6 py-7 lg:px-10"><div className="mx-auto flex max-w-6xl flex-col justify-between gap-5 text-xs text-white/35 sm:flex-row sm:items-center"><p>© {new Date().getFullYear()} Nishana Fathima. Built with intention.</p><div className="flex items-center gap-5"><a href="#contact" aria-label="Source code" className="transition hover:text-white"><GitBranch size={15} /></a><a href="#contact" aria-label="Professional network" className="transition hover:text-white"><Network size={15} /></a><a href="#home" className="flex items-center gap-2 transition hover:text-white">Back to top <ArrowUp size={14} /></a></div></div></footer>; }
